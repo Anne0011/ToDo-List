@@ -17,21 +17,13 @@ db.once('open', function (callback) {
 var todoSchema = mongoose.Schema({
     todo_due_date: Date,
     todo_timestamp: {type: Date, default: Date.now},
-    todo_description: String,
-    todo_title: String,
-    todo_priority: Number,
-    todo_completion: Boolean,
+    todo_description: {type: String, required: true},
+    todo_title: {type: String, required: true},
+    todo_priority: {type: Number, required: true},
+    todo_completion: {type: Boolean, default:false}
 
 });
 var Todo = mongoose.model('Todo', todoSchema);
-
-// var firstTodo = new todo({ 
-//   todo_due_date: Date.now(),
-//   todo_description: "My First Todo item",
-//   todo_title: "First",
-//   todo_priority: 2,
-//   complete: false
-// });
 
 
 // Get todo page
@@ -40,7 +32,8 @@ router.get('/', function(req, res, next){
 		if(!err){
 			res.render ('todo',{
 				greeting: "New Todo List",
-				tasks: tasks
+				tasks: tasks, 
+				// postData: JSON.stringify(req.body)
 			});
 			console.log(tasks);
 		} else {
@@ -56,16 +49,19 @@ router.post('/', function(req, res){
 		todo_due_date: req.body.todoDate,
 		todo_priority: req.body.todoPriority,
 		todo_title: req.body.todoTitle,
-		todo_description: req.body.todoDescription, 
+		todo_description: req.body.todoDescription,
 		todo_complete: req.body.todoComplete,
 		//complete: false
 	}).save(function (err, task) {
   if (err) {
     return console.error(err);
 	}
-	console.log(task);
+	console.log(tasks);
+	
 	});
+	
 	res.redirect('todo');
+	console.log("HERE THE DESCRIPTION ======+++++" + req.todoDescription);
 });
 
 module.exports = router;

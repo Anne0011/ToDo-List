@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>hello</title>
+    <title><%= title%></title>
     <link rel='stylesheet' href='/stylesheets/style.css'>
-    <link rel='stylesheet' href='/stylesheets/main.css'>
+    <link rel='stylesheet' href='/stylesheets/todo.css'>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">   
     <link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
 
 </head>
 <body>
     <h1><%= greeting %></h1>
-    <ul>
+  <!--   <pre>
+    <%= postData %>
+    </pre> -->
+    <ul> 
         <% tasks.forEach(function(task){ %>
         <li><%= task.todo_due_date %></li>
         <li><%= task.todo_priority %></li>
         <li><%= task.todo_title %></li>
-        <li><%= task.todo_discription %></li>
+        <li><%= task.todo_description %></li>
         <%})%>
     </ul>
 </body>
