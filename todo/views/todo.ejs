@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title%></title>
+    <title>Hello</title>
     <link rel='stylesheet' href='/stylesheets/style.css'>
     <link rel='stylesheet' href='/stylesheets/todo.css'>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">   
@@ -10,9 +10,7 @@
 </head>
 <body>
     <h1><%= greeting %></h1>
-  <!--   <pre>
-    <%= postData %>
-    </pre> -->
+
     <ul> 
         <% tasks.forEach(function(task){ %>
         <li><%= task.todo_due_date %></li>

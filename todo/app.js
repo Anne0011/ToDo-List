@@ -29,10 +29,52 @@ app.use('/users', users);
 app.use('/todo', todo);
 app.use('/create',todo);
 
+// Get todo page
+app.get('/', function(req, res, next){
+  return Todo.find( function (err, tasks) {
+    if(!err){
+      res.render ('todo',{
+        greeting: "New Todo List",
+        tasks: tasks, 
+        postData: JSON.stringify(req.body)
+      });
+      console.log(tasks);
+    } else {
+      return console.error(err);
+    }
+  });
+});
 
 
-
-
+// Post Form
+app.post('/', function(req, res){
+  new Todo({
+    todo_due_date: req.body.todoDate,
+    todo_priority: req.body.todoPriority,
+    todo_title: req.body.todoTitle,
+    todo_description: req.body.todoDescription,
+    todo_complete: req.body.todoComplete,
+    //complete: false
+  }).save(function (err, task) {
+  if (err) {
+    res.render('error',{
+      status: 300,
+      stack: JSON.stringify(err.errors)
+    }, 
+    message: "You Failed!"  
+    });
+  } else {
+    es.render('error',{
+      title: "Todo Created",
+      message: "Success!",
+  }
+  console.log(tasks);
+  
+  });
+  
+  res.redirect('todo');
+  console.log("HERE THE DESCRIPTION ======+++++" + req.todoDescription);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
