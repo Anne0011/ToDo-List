@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Hello</title>
     <link rel='stylesheet' href='/stylesheets/style.css'>
     <link rel='stylesheet' href='/stylesheets/todo.css'>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">   
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
 
 </head>
+
 <body>
     <h1><%= greeting %></h1>
 
-    <ul> 
+    <ul>
         <% tasks.forEach(function(task){ %>
-        <li><%= task.todo_due_date %></li>
-        <li><%= task.todo_priority %></li>
-        <li><%= task.todo_title %></li>
-        <li><%= task.todo_description %></li>
-        <%})%>
+            <li>
+                <%= task.todo_due_date %>
+            </li>
+            <li>
+                <%= task.todo_priority %>
+            </li>
+            <li>
+                <%= task.todo_title %>
+            </li>
+            <li>
+                <%= task.todo_description %>
+            </li>
+        <% }) %>
     </ul>
+    <div>
+        <button>Delete Me</button>
+        <script src="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+        <script>
+            $("#todo").validate();
+        </script>
+        <script src="/javascripts/validate.js"></script>
+
+
 </body>
+
 </html>

@@ -1,83 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
+
+<head>
+    <title>
+        <%=title %>
+    </title>
     <link rel='stylesheet' href='/stylesheets/style.css'>
     <link rel='stylesheet' href='/stylesheets/main.css'>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">   
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-    
-  </head>
-  
-  <body id= 'todoB'>
-    
+
+</head>
+
+<body id='todoB'>
+
     <h1><%= header %></h1>
-    
-    <p>Welcome to <%= body_text %></p>
-  
-  <form method="Post" action="/todo" id="todotask"class="form-horizontal" text>
+
+    <p>Welcome to
+        <%=body_text %>
+    </p>
+
+    <form method="Post" action="/todo" id="todotask" class="form-horizontal" text>
         <div class="form-group">
             <label for="dueDate" class="control-label col-xs-2">Due Date</label>
             <div class="col-xs-10">
-            <input type="date" class="form-control" name="todoDate" required>
-            </input>
+                <input type="date" class="form-control" name="todoDate" required>
+                </input>
             </div>
         </div>
 
         <div class="form-group">
             <label for="Description" class="control-label col-xs-2">Description</label>
             <div class="col-xs-10">
-            <textarea type="text" align="left" class="form-control" name="todoDescription" required>
-            </textarea>
+                <textarea type="text" align="left" class="form-control" name="todoDescription" required>
+                </textarea>
             </div>
         </div>
 
         <div class="form-group">
             <label for="todoTitle" class="control-label col-xs-2">Title</label>
-              <div class="col-xs-10">
-              <input type="text" align="left" class="form-control" name="todoTitle" required>
-              </input>
-              </div>
+            <div class="col-xs-10">
+                <input type="text" align="left" class="form-control" name="todoTitle" required>
+                </input>
+            </div>
         </div>
 
         <div class="form-group">
             <label for="Priority" class="control-label col-xs-2">Priority</label>
-              <div class="col-xs-10">
-              <input type="number" align="left" class="form-control" name="todoPriority" required>
-              </input>
-              </div>
+            <div class="col-xs-10">
+                <input type="number" align="left" class="form-control" name="todoPriority" required>
+                </input>
+            </div>
         </div>
 
         <div class="form-group">
             <div class="col-xs-offset-2 col-xs-10">
-            <div class="checkbox" name="todoComplete">
-            <label><input type="checkbox">Completed</label>
-            </div>
+                <div class="checkbox" name="todoComplete">
+                    <label>
+                        <input type="checkbox">Completed</label>
+                </div>
             </div>
         </div>
-        
+
         <div class="form-group">
             <div class="col-xs-offset-2 col-xs-10">
-            <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </form>
     <hr>
     <h3>List of Items</h3>
-    </body>
-   
-    
-    
+</body>
+
+
+
 <script src="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
- 
-<script>$("#todo").validate();</script>
+
+<script>
+    $("#todo").validate();
+</script>
 <script src="/javascripts/validate.js"></script>
-	
 
 
 
-  </body>
+
+</body>
+
 </html>
